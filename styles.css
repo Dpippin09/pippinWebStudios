@@ -268,6 +268,18 @@ section {
     gap: 1rem;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
 .form-group input,
 .form-group textarea {
     width: 100%;
