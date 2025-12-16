@@ -306,13 +306,125 @@ html {
     align-items: start;
 }
 
-.about-text h3 {
+.founder-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.founder-portrait {
+    position: relative;
+    width: 280px;
+    height: 350px;
+    margin: 0 auto;
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+    box-shadow: var(--shadow-large);
+    transition: var(--transition);
+}
+
+.founder-portrait:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-large), 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.portrait-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius-large);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 1;
+}
+
+.portrait-fallback i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.portrait-fallback span {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.portrait-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-large);
+    transition: var(--transition);
+    z-index: 2;
+    position: relative;
+}
+
+/* Fallback for missing image */
+.founder-portrait::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius-large);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: white;
+    z-index: 1;
+}
+
+.portrait-image[src*="portrait.jpg"] {
+    z-index: 2;
+    position: relative;
+}
+
+.portrait-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.founder-portrait:hover .portrait-overlay {
+    transform: translateY(0);
+}
+
+.portrait-overlay h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.portrait-overlay p {
+    font-size: 0.8rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.founder-info {
+    text-align: left;
+}
+
+.founder-info h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     color: var(--text-dark);
 }
 
-.about-text p {
+.founder-info p {
     color: var(--text-light);
     margin-bottom: 1.5rem;
     line-height: 1.7;
@@ -804,6 +916,15 @@ html {
     .about-content {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+    
+    .founder-section {
+        text-align: center;
+    }
+    
+    .founder-portrait {
+        width: 220px;
+        height: 280px;
     }
     
     .skills-grid {
